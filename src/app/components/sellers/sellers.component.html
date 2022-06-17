@@ -1,0 +1,79 @@
+<!-- auto view sellers without a button and create a radio button for "select" product -->
+<!-- create dropdown buttons for delivery and payment method -->
+<!-- create a button for "buy" when clicked it will create an order and delete the seller from the list with the product -->
+
+
+
+<!-- add seller -->
+<div>
+    <form [formGroup]="sellerform" (ngSubmit)="onSubmit()">
+  
+      <label for="sellerid">sellerid: </label>
+      <input id="sellerid" type="text" formControlName="sellerid">
+    
+      <label for="name">name: </label>
+      <input id="name" type="text" formControlName="name">
+  
+      <label for="productid">productid: </label>
+      <input id="productid" type="text" formControlName="productid">
+  
+      <button type="submit">Create seller</button>
+    </form>
+
+    <button (click)="update()">Update</button>
+  
+  </div>
+
+  <!-- view seller -->
+  <div class="container">
+    <div class="list" *ngFor="let item of list">
+      <div class="list-item">
+        <span class="list-row">
+          <label for="">sellerid:</label>{{item.sellerid}}
+          <label for="">name: </label>{{item.name}}
+          <label for="">productid: </label>{{item.productid}}
+          <input (click)="onselect(item.productid, item.sellerid)" type="radio" name="function" value="item.productid">
+        </span>
+      </div>
+    </div>
+  </div>
+
+    <!-- view delivery -->
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Select a delivery method</mat-label>
+      <mat-select [(value)]="selecteddelivery">
+        <mat-option *ngFor="let deliveries of deliverylist" [value]="deliveries.deliveryid">{{ deliveries.method }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  
+    <!-- view payment -->
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Select a payment method</mat-label>
+      <mat-select [(value)]="selectedpayment">
+        <mat-option *ngFor="let payments of paymentlist" [value]="payments.paymentid">{{ payments.method }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+      <!-- get user by id -->
+  <div style="float: right;">
+    <input #sellervalue>
+    <button (click)="getsellerbyid(sellervalue.value)">Buy product from specific seller</button>
+    <div class="list" *ngFor="let selleritem of sellerbyid">
+      <div class="list-item">
+        <span class="list-row">
+          <label for="">userID:</label>{{selleritem.sellerid}}
+          <label for="">username: </label>{{selleritem.name}}
+          <label for="">password: </label>{{selleritem.productid}}
+          <input (click)="onselect(selleritem.productid ,selleritem.sellerid)" type="radio" name="function" value="item.sellerid">
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <button (click)="onbuy()">Buy product</button>
+  </div>

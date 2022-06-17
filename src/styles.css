@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+:root {
+  --header-background: #333333;
+  --header-color: #bfbfbf;
+  --font-family: 'Poppins', sans-serif;
+  --default-font-size: 16px;
+  --font-size: 1.4rem;
+  --line-height: 1.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  font-size: var(--default-font-size);
+  line-height: var(--line-height);
+}
+
+.header {
+  background-color: var(--header-background);
+  color: var(--header-color);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header .navbar-brand {
+  color: var(--header-color);
+  font-size: var(--font-size);
+  text-decoration: none;
+  padding: 10px 25px;
+  transition: ease-in-out .4s;
+}
+
+.header .navbar-brand:hover {
+  color: dodgerblue;
+}
+
+.header .collapse-navbar {
+  padding: 10px 25px;
+}
+
+.header .collapse-navbar .navbar-nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header .collapse-navbar .navbar-nav .nav-item {
+  display: inline-block;
+}
+
+.header .collapse-navbar .navbar-nav .nav-item .nav-link {
+  color: var(--header-color);
+  text-decoration: none;
+  padding: 3px 8px;
+  transition: ease-in-out .4s;
+}
+
+.header .collapse-navbar .navbar-nav .nav-item .nav-link i {
+  margin-right: 3px;
+}
+
+.header .collapse-navbar .navbar-nav .nav-item .nav-link:hover {
+  color: goldenrod;
+}
+
+.container {
+  padding: 10px 25px;
+}
+
+.container .btn {
+  padding: 5px 25px;
+  margin-right: 10px;
+}
+
+.container .btn:last-child {
+  margin-right: 0;
+}
+
+.container .list {
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.container .list .list-item {
+  border: 1px solid #000000;
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: goldenrod;
+  color: black;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 5px;
+}
+
+.container .list .list-item .list-row {
+  border-bottom: 1px dashed black;
+  width: 100%;
+}
+
+.container .list .list-item .list-row:last-child {
+  border-bottom: none;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

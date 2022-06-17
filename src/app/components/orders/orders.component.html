@@ -1,0 +1,46 @@
+
+
+<!-- view orders -->
+  <div class="container">
+    <button (click)="vieworders()">View orders</button>
+    <div class="list" *ngFor="let item of list">
+      <div class="list-item">
+        <span class="list-row">
+          <label for="">orderid:</label>{{item.orderid}}
+          <label for="">productid: </label>{{item.productid}}
+          <label for="">userid: </label>{{item.userid}}
+          <label for="">deliveryid: </label>{{item.deliveryid}}
+          <label for="">paymentid: </label>{{item.paymentid}}
+          <button (click)="deleteorder(item.orderid)">Delete order</button>
+        </span>
+      </div>
+    </div>
+
+      <!-- get order by id -->
+  <div style="float: right;">
+    <input #ordervalue>
+    <button (click)="getorderbyid(ordervalue.value)">view order</button>
+    <div class="list" *ngFor="let orderitem of orderbyid">
+      <div class="list-item">
+        <span class="list-row">
+          <label for="">orderid:</label>{{orderitem.orderid}}
+          <label for="">productid: </label>{{orderitem.product?.productid}}
+          <label for="">productname: </label>{{orderitem.product?.productname}}
+          <label for="">price: </label>{{orderitem.product?.price}}
+
+          <label for="">userid: </label>{{orderitem.user?.userid}}
+          <label for="">username: </label>{{orderitem.user?.username}}
+          <label for="">password: </label>{{orderitem.user?.password}}
+
+          <label for="">deliveryid: </label>{{orderitem.delivery?.deliveryid}}
+          <label for="">method: </label>{{orderitem.delivery?.method}}
+
+          <label for="">paymentid: </label>{{orderitem.payment?.paymentid}}
+          <label for="">method: </label>{{orderitem.payment?.method}}
+          <button (click)="deleteorder(orderitem.orderid)">Delete order</button>
+        </span>
+      </div>
+    </div>
+  </div>
+  </div>
+

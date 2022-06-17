@@ -1,0 +1,74 @@
+<label for="userid">Logged in as: {{user.username}}  </label>
+
+<!-- add user -->
+<div>
+    <form [formGroup]="userform" (ngSubmit)="onSubmit()">
+  
+      <label for="userid">userid: </label>
+      <input id="userid" type="text" formControlName="userid">
+    
+      <label for="username">username: </label>
+      <input id="username" type="text" formControlName="username">
+  
+      <label for="password">password: </label>
+      <input id="password" type="text" formControlName="password">
+
+      <label for="country">country: </label>
+      <input id="country" type="text" formControlName="country">
+
+      <label for="zipcode">zipcode: </label>
+      <input id="zipcode" type="text" formControlName="zipcode">
+  
+      <button type="submit">Create user</button>
+    </form>
+
+    <button (click)="update()">Update</button>
+  
+  </div>
+
+  <!-- view users -->
+  <div class="container">
+    <button (click)="viewusers()">View created users</button>
+    <div class="list" *ngFor="let item of list">
+      <div class="list-item">
+        <span class="list-row">
+          <label for="">userID:</label>{{item.userid}}
+          <label for="">username: </label>{{item.username}}
+          <label for="">password: </label>{{item.password}}
+          <button (click)="deleteuser(item.userid)">Delete user</button>
+        </span>
+      </div>
+    </div>
+
+      <!-- get user by id -->
+  <div style="float: right;">
+    <input #uservalue>
+    <button (click)="getuserbyid(uservalue.value)">view user</button>
+    <div class="list" *ngFor="let useritem of userbyid">
+      <div class="list-item">
+        <span class="list-row">
+          <label for="">userID:</label>{{useritem.userid}}
+          <label for="">username: </label>{{useritem.username}}
+          <label for="">password: </label>{{useritem.password}}
+          <label for="">country: </label>{{useritem.address?.country}}
+          <label for="">zipcode: </label>{{useritem.address?.zipcode}}
+          <button (click)="deleteuser(useritem.userid)">Delete user</button>
+        </span>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div style="float: right;">
+    <input #thisvalue>
+    <button (click)="showcurrencies(thisvalue.value)">See currencies for user</button>
+    <div class="list" *ngFor="let currencies of usercurrencies">
+      <div class="list-item">
+        <span class="list-row">
+          <label for="">Currency:</label>{{currencies.currency?.currencyname}}
+        </span>
+      </div>
+    </div>
+  </div>
+
+
